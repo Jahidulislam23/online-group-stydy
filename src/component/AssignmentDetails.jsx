@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
+import { NavLink, useLoaderData, useNavigate } from 'react-router';
 
 const AssignmentDetails = () => {
     const assignment  = useLoaderData()
@@ -23,6 +23,9 @@ const AssignmentDetails = () => {
             <div>
             <h3>email:{assignment.email}</h3>
             </div>
+            <NavLink to='assignmentViewDetails'>
+              <button className='btn btn-primary'>Take assignment</button>
+            </NavLink>
         <button onClick={() => navigate("/Assignments")} className='btn btn-secondary'>assignment page</button>
           </div>
         </div>

@@ -62,6 +62,7 @@ const CreateAssignments = () => {
               name="title"
               className="input w-full"
               placeholder="title"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
@@ -71,6 +72,7 @@ const CreateAssignments = () => {
               name="description"
               className="input w-full"
               placeholder="Description"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
@@ -82,6 +84,7 @@ const CreateAssignments = () => {
               selected={setCareLevel}
               name="marks"
               id="marks"
+              required
             >
               <option value=""></option>
               <option value="easy">easy</option>
@@ -105,6 +108,7 @@ const CreateAssignments = () => {
               name="marks"
               className="input w-full"
               placeholder="Marks"
+              required
             />
           </fieldset>
           
@@ -114,6 +118,7 @@ const CreateAssignments = () => {
               className="w-full fieldset bg-base-200 border-base-300 rounded-box  border p-2"
               selected={startDateTime}
               onChange={(date) => setStartDateTime(date)}
+              required
             ></DatePicker>
           </fieldset>
 
@@ -136,6 +141,7 @@ const CreateAssignments = () => {
               defaultValue={user?.displayName}
               className="input w-full"
               placeholder="User Name"
+              required
             />
           </fieldset>
         </div>
@@ -146,6 +152,7 @@ const CreateAssignments = () => {
             name="photo"
             className="input w-full"
             placeholder="photo"
+            required
           />
         </fieldset>
         <input className="btn w-full" type="submit" value="Add Tree" />

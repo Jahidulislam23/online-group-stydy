@@ -9,12 +9,12 @@ const ErrorCode = () => {
         <Navbar></Navbar>
     </div>
     <div>
-      <div className="card bg-base-100 shadow-sm justify-center items-center mx-auto py-20 px-20">
+      <div className="card bg-base-100 shadow-sm justify-center items-center mx-auto py-6 px-20">
         <figure className=" pt-10 py-20 px-20">
           <img
             src="https://i.ibb.co.com/k2r9JJDs/8030430-3828537.jpg"
             alt="Shoes"
-            className="rounded-xl"
+            className="rounded-xl w-60"
           />
         </figure>
         <div className="">

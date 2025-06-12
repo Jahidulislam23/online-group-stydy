@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../context/AuthContext';
 
-const UpdateAssignment = () => {
-      const { email, photo, title, description, } = useLoaderData();
-      console.log(title)
+const AssignmentViewDetails = () => {
+    const { user } = use(AuthContext);
+          const { email,name } = useLoaderData();
+      
   const handleUpdateAssignment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,7 +14,7 @@ const UpdateAssignment = () => {
     const updateAssignment = Object.fromEntries(formData.entries());
     console.log(updateAssignment);
 
-    // send update the tree
+    // send viewAssignmentDetails
     fetch(`http://localhost:3000/assignment/${email}`, {
       method: "PUT",
       headers: {
@@ -36,16 +38,17 @@ const UpdateAssignment = () => {
           });
           Toast.fire({
             icon: "success",
-            title: "Assignment update successfully",
+            title: "Assignment View Details successfully",
           });
         }
       });
   };
   const navigate = useNavigate();
     return (
-        <div className="p-24">
+        <div>
+              <div className="p-24">
       <div className="p-12 text-center">
-        <h1 className="text-5xl font-bold">Update Assignment</h1>
+        <h1 className="text-5xl font-bold">View Assignment Details Page</h1>
       </div>
       <form onSubmit={handleUpdateAssignment}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -54,36 +57,39 @@ const UpdateAssignment = () => {
             <input
               type="text"
               name="title"
-              defaultValue={title}
+              
               className="input w-full"
               placeholder="title"
             />
           </fieldset>
+            <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
+            <label className="label">User Emai</label>
+            <input
+              type="email"
+              name="email"
+              defaultValue={user?.email}
+              className="input w-full"
+              placeholder="User Emai"
+              required
+            />
+          </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
-            <label className="label">Description</label>
+            <label className="label">Name</label>
             <input
               type="text"
               name="description"
-              defaultValue={description}
+              defaultValue={user?.name}
               className="input w-full"
               placeholder="Description"
+              required
             />
           </fieldset>
         </div>
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4 my-6">
-          <label className="label">Photo</label>
-          <input
-            type="photo"
-            name="photo"
-            defaultValue={photo}
-            className="input w-full"
-            placeholder="photo"
-          />
-        </fieldset>
-        <button onClick={() => navigate("/Assignments")} className='w-full'><input className="btn w-full" type="submit" value="update Tree" /></button>
+        <button onClick={() => navigate("/Assignments")} className='w-full'><input className="btn w-full" type="submit" value=" submitted assignment" /></button>
       </form>
     </div>
+        </div>
     );
 };
 
-export default UpdateAssignment;
+export default AssignmentViewDetails;

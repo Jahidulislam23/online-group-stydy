@@ -12,6 +12,7 @@ import Users from "../component/Users";
 import Loader from '../component/Loader'
 import UpdateAssignment from "../component/UpdateAssignment";
 import AssignmentDetails from "../component/AssignmentDetails";
+import AssignmentViewDetails from "../component/AssignmentViewDetails";
 
 
 const router = createBrowserRouter([
@@ -46,11 +47,18 @@ const router = createBrowserRouter([
                 hydrateFallbackElement: <Loader></Loader>,
             },
             {
-                path: "/assignmentDetails/:id",
-                Component: AssignmentDetails,
+                path: "/assignmentViewDetails/:id",
                 loader: ({ params }) =>
-                fetch(`http://localhost:3000/assignment/${params.id}`).then(res=>res.json()),
+                fetch(`http://localhost:3000/viewAssignmentViewDetails/${params.id}`).then(res=>res.json()),
+                Component: AssignmentViewDetails,
                 hydrateFallbackElement: <Loader></Loader>,
+            },
+            {
+                    path: "/assignmentDetails/:id",
+                    Component: AssignmentDetails,
+                    loader: ({ params }) =>
+                    fetch(`http://localhost:3000/assignment/${params.id}`).then(res=>res.json()),
+                    hydrateFallbackElement: <Loader></Loader>,
             },
             {
                 path:'/CreateAssignments',

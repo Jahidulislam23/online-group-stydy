@@ -44,7 +44,7 @@ const [plant, setPlant] = useState(data);
   return (
     <div className="grid grid-cols-3">
         {plant?.map(data=>(<div key={data._id} className="py-10">
-        <div className="card bg-base-100 w-96 shadow-sm justify-center mx-auto">
+        <div className="card bg-base-100  shadow-sm justify-center mx-auto">
       <figure>
         <img
           src={data?.photo}
