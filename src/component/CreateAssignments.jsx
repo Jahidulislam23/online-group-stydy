@@ -5,9 +5,9 @@ import DatePicker from 'react-datepicker';
 
 const CreateAssignments = () => {
       const { user } = use(AuthContext);
+
   const [startDateTime, setStartDateTime] = useState(new Date());
   const [careLevel, setCareLevel] = useState();
-  console.log(careLevel);
   const handleAddTree = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,7 +18,7 @@ const CreateAssignments = () => {
     newTree.startDateTime = startDateTime;
     
     newTree.careLevel = careLevel;
-    // send tree data to the db
+    // send assignment data to the db
     fetch("http://localhost:3000/assignment", {
       method: "POST",
       headers: {

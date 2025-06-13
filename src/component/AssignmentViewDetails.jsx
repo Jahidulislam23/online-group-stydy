@@ -4,8 +4,8 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthContext';
 
 const AssignmentViewDetails = () => {
-    const { user } = use(AuthContext);
-          const { email,name } = useLoaderData();
+  const { email } = useLoaderData();
+  const { user } = use(AuthContext);
       
   const handleUpdateAssignment = (e) => {
     e.preventDefault();
@@ -57,7 +57,6 @@ const AssignmentViewDetails = () => {
             <input
               type="text"
               name="title"
-              
               className="input w-full"
               placeholder="title"
             />
@@ -78,7 +77,7 @@ const AssignmentViewDetails = () => {
             <input
               type="text"
               name="description"
-              defaultValue={user?.name}
+              defaultValue={user?.displayName}
               className="input w-full"
               placeholder="Description"
               required

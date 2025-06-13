@@ -34,7 +34,7 @@ const router = createBrowserRouter([
                 Component:Login,
             },
             {
-                path:'/Assignments',
+                path:'/assignments',
                 Component:Assignments,
                 loader: () => fetch("http://localhost:3000/assignment").then(res=>res.json()),
                 hydrateFallbackElement: <Loader></Loader>,

@@ -3,9 +3,9 @@ import React from 'react';
 const Banner = () => {
     return (
         <div>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-4'>
             <div className='card bg-base-100  shadow-sm'>
-        <div className="card-body items-center text-center">
+        <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
         <figure className="">
             <img
             src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/bootstrap.png"
@@ -16,7 +16,7 @@ const Banner = () => {
         </div>
         </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/sass.png"
@@ -27,7 +27,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/html5.png"
@@ -38,7 +38,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/css3.png"
@@ -49,7 +49,7 @@ const Banner = () => {
                 </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/jquery.png"
@@ -60,7 +60,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/w3c-validation.png"
@@ -71,7 +71,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/responsive.png"
@@ -82,7 +82,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/clean-code.png"
@@ -93,7 +93,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/ajux.png"
@@ -104,7 +104,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/google-font.png"
@@ -115,7 +115,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/magnific-popup.png"
@@ -126,7 +126,7 @@ const Banner = () => {
             </div>
             </div>
             <div className='card bg-base-100  shadow-sm'>
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-linear-to-t from-sky-300 to-indigo-300 rounded">
             <figure className="">
                 <img
                 src="https://themeforest.wprealizer.com/html-educoda-preview/assets/images/speed.png"

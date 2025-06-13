@@ -2,6 +2,7 @@ import React from 'react';
 import HomeSlider from './HomeSlider';
 import Banner from './Banner';
 import FaqSection from './FaqSection';
+import FeaturesSection from './Featuresection'
 import {motion} from 'motion/react'
 
 const Home = () => {
@@ -23,6 +24,9 @@ const Home = () => {
                 }}
                 >section</motion.span></motion.h1>
                 <FaqSection></FaqSection>
+            </div>
+            <div>
+                <FeaturesSection></FeaturesSection>
             </div>
         </div>
     );

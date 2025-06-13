@@ -3,9 +3,9 @@ import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
 const Assignments = () => {
-    const data = useLoaderData()
-const [plant, setPlant] = useState(data);
-//   const {_id,title,description,photo} = useLoaderData();
+  const data = useLoaderData();
+  const [plant, setPlant] = useState(data);
+  //   const {_id,title,description,photo} = useLoaderData();
 
   const handleDelete = (_id) => {
     console.log(_id);
@@ -23,6 +23,9 @@ const [plant, setPlant] = useState(data);
         // start deleting the tree
         fetch(`http://localhost:3000/assignment/${_id}`, {
           method: "DELETE",
+
+//   credentials: "include", 
+// })
         })
           .then((res) => res.json())
           .then((data) => {
@@ -42,32 +45,44 @@ const [plant, setPlant] = useState(data);
     });
   };
   return (
-    <div className="grid grid-cols-3">
-        {plant?.map(data=>(<div key={data._id} className="py-10">
-        <div className="card bg-base-100  shadow-sm justify-center mx-auto">
-      <figure>
-        <img
-          src={data?.photo}
-          alt="Shoes"
-        />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">{data?.title}</h2>
-        <p>
-          {data?.description}
-        </p>
-        <div className="card-actions ">
-          <Link to={`/update/${data?._id}`}>
-                <button className="btn hover:text-white rounded hover:bg-red-400">
-                  Edit
+    <div className="grid grid-cols-3 gap-4">
+      {plant?.map((data) => (
+        <div key={data._id} className="py-10">
+          <div className="card bg-base-100  shadow-sm justify-center mx-auto">
+            <figure>
+              <img src={data?.photo} alt="Shoes" />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{data?.title}</h2>
+              <p>{data?.description}</p>
+              <div className="card-actions ">
+                <Link to={`/update/${data?._id}`}>
+                  <button className="btn hover:bg-blue-500">
+                    Edit
+                  </button>
+                </Link>
+                
+                <Link to={`/assignmentDetails/${data?._id}`}>
+                  <button className="btn  hover:bg-blue-500">
+                    View Details btn
+                  </button>
+                </Link>
+                <Link to={`/assignmentDetails/${data?._id}`}>
+                  <button className="btn  hover:bg-blue-500">
+                    View Details
+                  </button>
+                </Link>
+                <button
+                  onClick={() => handleDelete(data?._id)}
+                  className="btn hover:bg-blue-500"
+                >
+                  Delete
                 </button>
-              </Link>
-          <Link to={`/assignmentDetails/${data?._id}`}><button className="btn  hover:bg-blue-500">View Details</button></Link>
-          <button onClick={() => handleDelete(data?._id)} className="btn btn-primary">Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    </div>))}
+      ))}
     </div>
   );
 };

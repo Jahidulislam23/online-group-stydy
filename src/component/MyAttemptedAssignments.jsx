@@ -6,7 +6,7 @@ const MyAttemptedAssignments = () => {
     const { user } = use(AuthContext);
     const [plant, setPlant] = useState([]);
     useEffect(() => {
-    fetch(`https://mango-tree-server.vercel.app/mango/${user?.email}`)
+    fetch(`http://localhost:3000/assignments/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setPlant(data);
