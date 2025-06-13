@@ -163,6 +163,17 @@ const Navbar = () => {
                   >
                     My Attempted Assignments
                   </NavLink>
+                  
+                </li>
+                <li>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? " text-blue-500" : ""
+                    }
+                    to="/PendingAssignmentsPage"
+                  >
+                    PendingAssignmentsPage
+                  </NavLink>
                 </li>
         </ul>
       </div>
@@ -208,6 +219,14 @@ const Navbar = () => {
                     to="/MyAttemptedAssignments"
                   >
                     My Attempted Assignments
+                  </NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? " text-blue-500" : ""
+                    }
+                    to="/PendingAssignmentsPage"
+                  >
+                    PendingAssignmentsPage
                   </NavLink>
                 </li>
                 </ul>

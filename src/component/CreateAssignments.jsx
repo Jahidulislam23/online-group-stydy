@@ -21,6 +21,7 @@ const CreateAssignments = () => {
     // send assignment data to the db
     fetch("http://localhost:3000/assignment", {
       method: "POST",
+      credentials:'include',
       headers: {
         "content-type": "application/json",
       },

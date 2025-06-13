@@ -23,9 +23,7 @@ const Assignments = () => {
         // start deleting the tree
         fetch(`http://localhost:3000/assignment/${_id}`, {
           method: "DELETE",
-
-//   credentials: "include", 
-// })
+          credentials: "include", 
         })
           .then((res) => res.json())
           .then((data) => {
@@ -45,7 +43,7 @@ const Assignments = () => {
     });
   };
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       {plant?.map((data) => (
         <div key={data._id} className="py-10">
           <div className="card bg-base-100  shadow-sm justify-center mx-auto">
@@ -62,11 +60,11 @@ const Assignments = () => {
                   </button>
                 </Link>
                 
-                <Link to={`/assignmentDetails/${data?._id}`}>
+                {/* <Link to={`/assignmentDetails/${data?._id}`}>
                   <button className="btn  hover:bg-blue-500">
                     View Details btn
                   </button>
-                </Link>
+                </Link> */}
                 <Link to={`/assignmentDetails/${data?._id}`}>
                   <button className="btn  hover:bg-blue-500">
                     View Details

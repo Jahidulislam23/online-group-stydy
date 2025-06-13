@@ -6,7 +6,9 @@ const MyAttemptedAssignments = () => {
     const { user } = use(AuthContext);
     const [plant, setPlant] = useState([]);
     useEffect(() => {
-    fetch(`http://localhost:3000/assignments/${user?.email}`)
+    fetch(`http://localhost:3000/assignments/${user?.email}`,{
+        credentials:'include'
+    })
       .then((res) => res.json())
       .then((data) => {
         setPlant(data);

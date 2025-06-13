@@ -41,26 +41,26 @@ export default function App() {
             <button className='btn btn-secondary'>Learn More</button>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full h-96' src="https://i.ibb.co/NdNgPs4j/pexels-blaxtaressentials-12999087.jpg" alt="" />
+            <img className='w-full h-96' src="https://i.ibb.co/SXs51myj/Stressed-millennial-guy-studying-before-college-exams.jpg" alt="" />
             
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full h-96' src="https://i.ibb.co/p6GTmqCt/pexels-kelly-1179532-16563022.jpg" alt="" />
+            <img className='w-full h-96' src="https://i.ibb.co/4wvGKTBB/making-business-notes.jpg" alt="" />
             
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full h-96' src="https://i.ibb.co/gbm7g0n1/pexels-errezuniga-5274763.jpg" alt="" />
+            <img className='w-full h-96' src="https://i.ibb.co/wvY51m6/woman-desk-with-laptop-credit-card.jpg" alt="" />
             
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full h-96' src="https://i.ibb.co/7xh0vTYz/pexels-pedrofurtadoo-28903090.jpg" alt="" />
+            {/* <img className='w-full h-96' src="" alt="" /> */}
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>
         <SwiperSlide>
-            <img className='w-full h-96' src="https://i.ibb.co/hJcZB7m8/pexels-rajesh-s-balouria-1289088-32134957.jpg" alt="" />
+            {/* <img className='w-full h-96' src="" alt="" /> */}
             
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>

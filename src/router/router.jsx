@@ -13,6 +13,7 @@ import Loader from '../component/Loader'
 import UpdateAssignment from "../component/UpdateAssignment";
 import AssignmentDetails from "../component/AssignmentDetails";
 import AssignmentViewDetails from "../component/AssignmentViewDetails";
+import PendingAssignmentsPage from '../component/PendingAssignmentsPage';
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,8 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 Component:Home,
+                loader: () => fetch("http://localhost:3000/homeAssignment"),
+                hydrateFallbackElement:<Loader></Loader>
             },
             {
                 path:'/register',
@@ -36,20 +39,26 @@ const router = createBrowserRouter([
             {
                 path:'/assignments',
                 Component:Assignments,
-                loader: () => fetch("http://localhost:3000/assignment").then(res=>res.json()),
+                loader: () => fetch("http://localhost:3000/assignment",{
+                    credentials:'include',
+                }).then(res=>res.json()),
                 hydrateFallbackElement: <Loader></Loader>,
             },
             {
                 path: "/update/:id",
                 loader: ({ params }) =>
-                fetch(`http://localhost:3000/assignment/${params.id}`).then(res=>res.json()),
+                fetch(`http://localhost:3000/assignment/${params.id}`,{
+                    credentials:'include'
+                }).then(res=>res.json()),
                 Component: UpdateAssignment,
                 hydrateFallbackElement: <Loader></Loader>,
             },
             {
                 path: "/assignmentViewDetails/:id",
                 loader: ({ params }) =>
-                fetch(`http://localhost:3000/viewAssignmentViewDetails/${params.id}`).then(res=>res.json()),
+                fetch(`http://localhost:3000/viewAssignmentViewDetails/${params.id}`,{
+                    credentials:"include"
+                }).then(res=>res.json()),
                 Component: AssignmentViewDetails,
                 hydrateFallbackElement: <Loader></Loader>,
             },
@@ -57,7 +66,9 @@ const router = createBrowserRouter([
                     path: "/assignmentDetails/:id",
                     Component: AssignmentDetails,
                     loader: ({ params }) =>
-                    fetch(`http://localhost:3000/assignment/${params.id}`).then(res=>res.json()),
+                    fetch(`http://localhost:3000/assignment/${params.id}`,{
+                        credentials:'include'
+                    }).then(res=>res.json()),
                     hydrateFallbackElement: <Loader></Loader>,
             },
             {
@@ -67,6 +78,14 @@ const router = createBrowserRouter([
             {
                 path:'/MyAttemptedAssignments',
                 element:<PrivateRoute><MyAttemptedAssignments></MyAttemptedAssignments></PrivateRoute>
+            },
+            {
+                path:'/PendingAssignmentsPage',
+                loader: () => fetch("http://localhost:3000/assignmentModal",{
+                    credentials:'include',
+                }).then(res=>res.json()),
+                element:<PrivateRoute><PendingAssignmentsPage></PendingAssignmentsPage></PrivateRoute>,
+                
             },
             {
                 path: "/users",

@@ -4,16 +4,25 @@ import Banner from './Banner';
 import FaqSection from './FaqSection';
 import FeaturesSection from './Featuresection'
 import {motion} from 'motion/react'
+import { useLoaderData } from 'react-router';
+import BannerSection from './BannerSection';
 
 const Home = () => {
+    const data = useLoaderData();
+    
     return (
         <div>
             <div className='py-10'>
-                <HomeSlider></HomeSlider>
+                <FeaturesSection></FeaturesSection>
             </div>
             <div className='py-10'>
-                <h1 className='text-center text-6xl py-3'>Educoda <span className='text-blue-500'>Core</span> Features</h1>
-                <Banner></Banner>
+                <HomeSlider></HomeSlider>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-3 sm:justify-center sm:mx-auto py-6 gap-6'>
+                {
+                    data.map(card=> <BannerSection key={card._id} card={card}></BannerSection>)
+                }
+                
             </div>
             <div className='py-8'>
                 <motion.h1 className='text-center text-6xl py-3'><span className='text-red-500'>F</span> <span className='text-blue-500'>A</span> <span className='text-green-500'>Q</span> <motion.span
@@ -25,9 +34,12 @@ const Home = () => {
                 >section</motion.span></motion.h1>
                 <FaqSection></FaqSection>
             </div>
-            <div>
-                <FeaturesSection></FeaturesSection>
+            <div className='py-10'>
+                <h1 className='text-center text-6xl py-3'>Educoda <span className='text-blue-500'>Core</span> Features</h1>
+                <Banner></Banner>
             </div>
+            
+           
         </div>
     );
 };

@@ -10,7 +10,7 @@ const ErrorCode = () => {
     </div>
     <div>
       <div className="card bg-base-100 shadow-sm justify-center items-center mx-auto py-6 px-20">
-        <figure className=" pt-10 py-20 px-20">
+        <figure className=" pt-10 py-10 px-10">
           <img
             src="https://i.ibb.co.com/k2r9JJDs/8030430-3828537.jpg"
             alt="Shoes"
