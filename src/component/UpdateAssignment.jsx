@@ -15,6 +15,7 @@ const UpdateAssignment = () => {
     // send update the tree
     fetch(`http://localhost:3000/assignment/${email}`, {
       method: "PUT",
+      credentials:'include',
       headers: {
         "content-type": "application/json",
       },

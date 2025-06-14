@@ -69,12 +69,7 @@ const AssignmentDetails = () => {
             </button>
             <dialog id="my_modal_1" className="modal">
               <div className="modal-box">
-                {/* <h2>plan name:{assignment.title}</h2>
-                <h3>description:{assignment.description}</h3>
-                <h3>email:{assignment.email}</h3> */}
-
-                <div className="modal-action">
-                  <form onSubmit={handleAddAssignment}>
+                <form onSubmit={handleAddAssignment}>
                     <div className=" w-full gap-6"></div>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border  my-6 w-full">
                       <label className="label"> GoogleDocsLink</label>
@@ -114,14 +109,18 @@ const AssignmentDetails = () => {
                       </select>
                     </fieldset> */}
                     <h3 className="w-full">email:{assignment.email}</h3>
-                    <button className="btn hover:bg-blue-400">Close</button>
-
                     <button
                       onClick={() => navigate("/Assignments")}
                       className="btn hover:bg-blue-400"
                     >
                       Submit assignment
                     </button>
+                  </form>
+
+                <div className="modal-action">
+                  
+                  <form method="dialog">
+                    <button className="btn hover:bg-blue-400">Close</button>
                   </form>
                 </div>
               </div>

@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import PendingAssignmentsPageCard from "./PendingAssignmentsPageCard";
 
 const Pendingassignmentspage = () => {
+    
   const data = useLoaderData();
 //   console.log(data);
   return (
