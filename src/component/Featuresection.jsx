@@ -56,11 +56,11 @@ export default function App() {
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>
         <SwiperSlide>
-            {/* <img className='w-full h-96' src="" alt="" /> */}
+            <img className='w-full h-96' src="https://i.ibb.co/PvCm05gq/colleagues-discussing-new-ideas-business-meeting.jpg" alt="" />
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>
         <SwiperSlide>
-            {/* <img className='w-full h-96' src="" alt="" /> */}
+            <img className='w-full h-96' src="https://i.ibb.co/1GcfCfb1/people-correcting-charts.jpg" alt="" />
             
             <button className='btn btn-secondary '>Learn More</button>
         </SwiperSlide>

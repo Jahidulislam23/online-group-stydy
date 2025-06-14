@@ -2,7 +2,7 @@ import React, { use, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthContext';
 import DatePicker from 'react-datepicker';
-
+import "react-datepicker/dist/react-datepicker.css";
 const CreateAssignments = () => {
       const { user } = use(AuthContext);
 
