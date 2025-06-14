@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const UpdateAssignment = () => {
       const { email, photo, title, description, } = useLoaderData();
-      console.log(title)
+      const navigate = useNavigate();
   const handleUpdateAssignment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,7 +12,7 @@ const UpdateAssignment = () => {
     const updateAssignment = Object.fromEntries(formData.entries());
     console.log(updateAssignment);
 
-    // send update the tree
+    // send update the assignment
     fetch(`http://localhost:3000/assignment/${email}`, {
       method: "PUT",
       credentials:'include',
@@ -25,6 +25,7 @@ const UpdateAssignment = () => {
       .then((data) => {
         if (data.modifiedCount) {
           const Toast = Swal.mixin({
+
             toast: true,
             position: "top-end",
             showConfirmButton: false,
@@ -35,14 +36,18 @@ const UpdateAssignment = () => {
               toast.onmouseleave = Swal.resumeTimer;
             },
           });
+
           Toast.fire({
             icon: "success",
             title: "Assignment update successfully",
+
           });
+          navigate('/assignments')
         }
       });
+
   };
-  const navigate = useNavigate();
+  
     return (
         <div className="p-24">
       <div className="p-12 text-center">
@@ -55,6 +60,7 @@ const UpdateAssignment = () => {
             <input
               type="text"
               name="title"
+              // value={title}
               defaultValue={title}
               className="input w-full"
               placeholder="title"
@@ -65,6 +71,7 @@ const UpdateAssignment = () => {
             <input
               type="text"
               name="description"
+              // value={description}
               defaultValue={description}
               className="input w-full"
               placeholder="Description"
@@ -76,12 +83,13 @@ const UpdateAssignment = () => {
           <input
             type="photo"
             name="photo"
+            // value={photo}
             defaultValue={photo}
             className="input w-full"
             placeholder="photo"
           />
         </fieldset>
-        <button onClick={() => navigate("/Assignments")} className='w-full'><input className="btn w-full" type="submit" value="update Tree" /></button>
+        <button  className='w-full'><input className="btn w-full" type="submit" value="update assignment" /></button>
       </form>
     </div>
     );

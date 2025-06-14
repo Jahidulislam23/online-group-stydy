@@ -45,7 +45,9 @@ const Assignments = () => {
   };
   const handleFilter = (event) => {
     setSelect(event.target.value)
-    fetch(`http://localhost:3000/assignment?filterType=${event.target.value}`)
+    fetch(`http://localhost:3000/assignment?filterType=${event.target.value}`,{
+      credentials:'include'
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -73,16 +75,11 @@ const Assignments = () => {
               <div className="card-body">
                 <h2 className="card-title">{data?.title}</h2>
                 <p>{data?.description}</p>
+                <p>{data?.marks}</p>
                 <div className="card-actions ">
                   <Link to={`/update/${data?._id}`}>
                     <button className="btn hover:bg-blue-500">Edit</button>
                   </Link>
-
-                  {/* <Link to={`/assignmentDetails/${data?._id}`}>
-                  <button className="btn  hover:bg-blue-500">
-                    View Details btn
-                  </button>
-                </Link> */}
                   <Link to={`/assignmentDetails/${data?._id}`}>
                     <button className="btn  hover:bg-blue-500">
                       View Details

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { use, } from "react";
 import { NavLink, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 
 const AssignmentDetails = () => {
+  const {user} = use(AuthContext);
   const assignment = useLoaderData();
   const navigate = useNavigate();
   // const [careLevel, setCareLevel] = useState();
@@ -91,6 +93,17 @@ const AssignmentDetails = () => {
                         required
                       />
                     </fieldset>
+                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
+                      <label className="label">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        defaultValue={user?.email}
+                        className="input w-full"
+                        placeholder="Email"
+                        required
+                      />
+                    </fieldset>
                     {/* <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border ">
                       <label className="label">
                         assignment pending status level
@@ -108,7 +121,7 @@ const AssignmentDetails = () => {
                         <option value="pending status">pending status</option>
                       </select>
                     </fieldset> */}
-                    <h3 className="w-full">email:{assignment.email}</h3>
+                    {/* <h3 className="w-full">email:{assignment.email}</h3> */}
                     <button
                       onClick={() => navigate("/Assignments")}
                       className="btn hover:bg-blue-400"

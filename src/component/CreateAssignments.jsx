@@ -80,11 +80,12 @@ const CreateAssignments = () => {
             <label className="label">assignment difficulty level</label>
             <select
               onChange={(e) => setCareLevel(e.target.value)}
-              value={careLevel}
+              
               className="input input-bordered w-full"
               selected={setCareLevel}
               name="marks"
               id="marks"
+              value={careLevel}
               required
             >
               <option value=""></option>
