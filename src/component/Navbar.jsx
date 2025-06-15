@@ -88,7 +88,9 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li>
+            {
+              isUserExist ? <>
+              <li>
               <NavLink
                 className={({ isActive }) => (isActive ? " text-blue-500" : "")}
                 to="/Assignments"
@@ -106,8 +108,8 @@ const Navbar = () => {
                   >
                     Create Assignments
                   </NavLink>
-                </li>
-                <li>
+            </li>
+            <li>
                   <NavLink
                     className={({ isActive }) =>
                       isActive ? " text-blue-500" : ""
@@ -116,7 +118,9 @@ const Navbar = () => {
                   >
                     My Attempted Assignments
                   </NavLink>
-                </li>
+            </li>
+              </> :""
+            }
           </ul>
         </div>
         <img
@@ -144,28 +148,7 @@ const Navbar = () => {
               Assignments page
             </NavLink>
           </li>
-          <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? " text-blue-500" : ""
-                    }
-                    to="/CreateAssignments"
-                  >
-                    Create Assignments
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? " text-blue-500" : ""
-                    }
-                    to="/MyAttemptedAssignments"
-                  >
-                    My Attempted Assignments
-                  </NavLink>
-                  
-                </li>
-                <li>
+          {isUserExist?<><li>
                   <NavLink
                     className={({ isActive }) =>
                       isActive ? " text-blue-500" : ""
@@ -174,7 +157,7 @@ const Navbar = () => {
                   >
                     PendingAssignmentsPage
                   </NavLink>
-                </li>
+                </li></>:""}
         </ul>
       </div>
       <div className="navbar-end gap-3">
