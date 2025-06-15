@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 
 const Assignments = () => {
   const data = useLoaderData();
   const [plant, setPlant] = useState(data);
   const [select,setSelect] = useState('')
-  //   const {_id,title,description,photo} = useLoaderData();
-
+  const {user} = use(AuthContext);
+  const {email} = data;
+    // const {email} = useLoaderData();
+    console.log(email)
   const handleDelete = (_id) => {
     console.log(_id);
 
@@ -54,6 +57,44 @@ const Assignments = () => {
         setPlant(data)
       });
   };
+  const handleGiveMark = () => {
+      if(user?.email ===email) {
+        const Toast = Swal.mixin({
+                  toast: true,
+                  position: "top-end",
+                  showConfirmButton: false,
+                  timer: 3000,
+                  timerProgressBar: true,
+                  didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                  },
+                });
+                Toast.fire({
+                  icon: "success",
+                  title: "ai email tomi kaj korte parba ",
+                });
+      } 
+    };
+    const handleNoGiveMark =()=>{
+        if(user?.email === email){
+          const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.onmouseenter = Swal.stopTimer;
+                      toast.onmouseleave = Swal.resumeTimer;
+                    },
+                  });
+                  Toast.fire({
+                    icon: "success",
+                    title: "tomer email tomi kaj korte parba na",
+                  });
+        }
+      }
   return (
     <>
       <fieldset className="fieldset">
@@ -73,13 +114,16 @@ const Assignments = () => {
                 <img src={data?.photo} alt="Shoes" />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{data?.title}</h2>
-                <p>{data?.description}</p>
-                <p>{data?.marks}</p>
+                <h2 className="card-title">Title: {data?.title}</h2>
+                <p>Description: {data?.description}</p>
+                <p>Marks: {data?.marks}</p>
                 <div className="card-actions ">
-                  <Link to={`/update/${data?._id}`}>
-                    <button className="btn hover:bg-blue-500">Edit</button>
-                  </Link>
+                  {
+                    user?.email === email ? <Link to={`/update/${data?._id}`}>
+                    <button onClick={handleGiveMark} className="btn hover:bg-blue-500">Edit</button>
+                  </Link> : <button onClick={handleNoGiveMark} className="btn">Edit</button>
+                  }
+                  
                   <Link to={`/assignmentDetails/${data?._id}`}>
                     <button className="btn  hover:bg-blue-500">
                       View Details

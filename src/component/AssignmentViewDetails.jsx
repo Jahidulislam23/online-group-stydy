@@ -17,6 +17,7 @@ const AssignmentViewDetails = () => {
     // send viewAssignmentDetails
     fetch(`http://localhost:3000/assignment/${email}`, {
       method: "PUT",
+      credentials:'include',
       headers: {
         "content-type": "application/json",
       },

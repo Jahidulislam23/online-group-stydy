@@ -52,7 +52,7 @@ const router = createBrowserRouter([
                 fetch(`http://localhost:3000/assignment/${params.id}`,{
                     credentials:'include'
                 }).then(res=>res.json()),
-                Component: UpdateAssignment,
+                element:<PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
                 hydrateFallbackElement: <Loader></Loader>,
             },
             {
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
             },
             {
                     path: "/assignmentDetails/:id",
-                    Component: AssignmentDetails,
+                    element:<PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
                     loader: ({ params }) =>
                     fetch(`http://localhost:3000/assignment/${params.id}`,{
                         credentials:'include'
@@ -95,7 +95,7 @@ const router = createBrowserRouter([
                 fetch(`http://localhost:3000/assignmentModal/${params.id}`,{
                     credentials:'include'
                 }).then(res=>res.json()),
-                Component: UpdateAssignmentModal,
+                element:<PrivateRoute><UpdateAssignmentModal></UpdateAssignmentModal></PrivateRoute>,
                 hydrateFallbackElement: <Loader></Loader>,
             },
             {
