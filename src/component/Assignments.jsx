@@ -8,11 +8,9 @@ const Assignments = () => {
   const [plant, setPlant] = useState(data);
   const [select,setSelect] = useState('')
   const {user} = use(AuthContext);
-  const {email} = data;
-    // const {email} = useLoaderData();
-    console.log(email)
+  // const {email} = data;
+  //   console.log(email)
   const handleDelete = (_id) => {
-    console.log(_id);
 
     Swal.fire({
       title: "Are you sure?",
@@ -44,8 +42,44 @@ const Assignments = () => {
             }
           });
       }
+      if(user?.email === data?.email){
+          const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.onmouseenter = Swal.stopTimer;
+                      toast.onmouseleave = Swal.resumeTimer;
+                    },
+                  });
+                  Toast.fire({
+                    icon: "success",
+                    title: "tomer email tomi kaj korte parba na",
+                  });
+        }
     });
   };
+  const handleNoDelete =()=>{
+        if(user?.email !== data?.email){
+          const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                      toast.onmouseenter = Swal.stopTimer;
+                      toast.onmouseleave = Swal.resumeTimer;
+                    },
+                  });
+                  Toast.fire({
+                    icon: "success",
+                    title: "tomer email tomi sara delete korte parba na",
+                  });
+        }
+      }
   const handleFilter = (event) => {
     setSelect(event.target.value)
     fetch(`http://localhost:3000/assignment?filterType=${event.target.value}`,{
@@ -57,8 +91,9 @@ const Assignments = () => {
         setPlant(data)
       });
   };
-  const handleGiveMark = () => {
-      if(user?.email ===email) {
+  const handleGiveMarkEdit = () => {
+      if(user?.email ===data?.email) {
+        console.log(data?.email)
         const Toast = Swal.mixin({
                   toast: true,
                   position: "top-end",
@@ -76,8 +111,8 @@ const Assignments = () => {
                 });
       } 
     };
-    const handleNoGiveMark =()=>{
-        if(user?.email === email){
+    const handleNoGiveMarkEdit =()=>{
+        if(user?.email !== data?.email){
           const Toast = Swal.mixin({
                     toast: true,
                     position: "top-end",
@@ -119,9 +154,9 @@ const Assignments = () => {
                 <p>Marks: {data?.marks}</p>
                 <div className="card-actions ">
                   {
-                    user?.email === email ? <Link to={`/update/${data?._id}`}>
-                    <button onClick={handleGiveMark} className="btn hover:bg-blue-500">Edit</button>
-                  </Link> : <button onClick={handleNoGiveMark} className="btn">Edit</button>
+                    user?.email === data?.email ? <Link to={`/update/${data?._id}`}>
+                    <button onClick={handleGiveMarkEdit} className="btn hover:bg-blue-500">Edit</button>
+                  </Link> : <button onClick={handleNoGiveMarkEdit} className="btn">Edit</button>
                   }
                   
                   <Link to={`/assignmentDetails/${data?._id}`}>
@@ -129,12 +164,14 @@ const Assignments = () => {
                       View Details
                     </button>
                   </Link>
-                  <button
+                  {
+                    user?.email === data?.email ? <button
                     onClick={() => handleDelete(data?._id)}
                     className="btn hover:bg-blue-500"
                   >
                     Delete
-                  </button>
+                  </button> : <button onClick={handleNoDelete} className="btn">delete</button>
+                  }
                 </div>
               </div>
             </div>
