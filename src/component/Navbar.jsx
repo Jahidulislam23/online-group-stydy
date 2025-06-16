@@ -128,7 +128,8 @@ const Navbar = () => {
           src="https://i.ibb.co/84zxHrL9/focused-students-using-tablet-discussing-information.jpg"
           alt=""
         />
-        <a className="btn btn-ghost text-xl"> Online Group-Study</a>
+        <h5 className="btn btn-ghost text-xl"> assignment</h5>
+        
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

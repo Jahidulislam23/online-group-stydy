@@ -12,13 +12,13 @@ const Home = () => {
     
     return (
         <div>
-            <div className='py-10'>
+            <div className='py-10 sm:pr-3 lg:mx-auto lg:items-center md:mx-auto md:items-center sm:mx-auto sm:items-center'>
                 <FeaturesSection></FeaturesSection>
             </div>
             <div className='py-10'>
                 <HomeSlider></HomeSlider>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 sm:justify-center sm:mx-auto py-6 gap-6'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 py-6 gap-6'>
                 {
                     data.map(card=> <BannerSection key={card._id} card={card}></BannerSection>)
                 }
@@ -34,7 +34,7 @@ const Home = () => {
                 >section</motion.span></motion.h1>
                 <FaqSection></FaqSection>
             </div>
-            <div className='py-10'>
+            <div className='lg:py-10 md:py-7 sm:py-5'>
                 <h1 className='text-center text-6xl py-3'>Educoda <span className='text-blue-500'>Core</span> Features</h1>
                 <Banner></Banner>
             </div>

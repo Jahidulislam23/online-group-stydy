@@ -5,7 +5,7 @@ const BannerSection = ({ card }) => {
     const {_id,title,photo,description,careLevel} = card;
     return (
         <div>
-            <div className="card bg-linear-to-r from-cyan-300 to-blue-300 w-96 shadow-sm">
+            <div className="card bg-linear-to-r from-cyan-300 to-blue-300 shadow-sm sm:pr-3">
         <figure>
           <img
             src={photo}
