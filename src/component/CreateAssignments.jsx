@@ -30,7 +30,6 @@ const CreateAssignments = () => {
     const formData = new FormData(form);
     const newTree = Object.fromEntries(formData.entries());
     console.log(newTree);
-    // newTree.startDate = startDate;
     newTree.startDateTime = startDateTime;
 
     newTree.careLevel = careLevel;

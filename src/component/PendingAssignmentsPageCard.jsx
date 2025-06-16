@@ -27,7 +27,7 @@ const PendingAssignmentsPageCard = ({ card }) => {
                 title: "ai email tomi kaj korte parba ",
               });
     } 
-      // return alert('tomer email')
+    
     
     
   };

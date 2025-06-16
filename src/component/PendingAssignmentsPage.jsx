@@ -11,9 +11,6 @@ const Pendingassignmentspage = () => {
         {
             data.map(card=><PendingAssignmentsPageCard key={card._id} card={card}></PendingAssignmentsPageCard>)
         }
-      {/* <h2>{data.Google_Docs_link} </h2>
-      <h2>{data.description} </h2>
-      <h2>{data.careLevel} </h2> */}
       
     </div>
   );

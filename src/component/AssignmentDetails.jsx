@@ -7,7 +7,6 @@ const AssignmentDetails = () => {
   const { user } = use(AuthContext);
   const assignment = useLoaderData();
   const navigate = useNavigate();
-  // const [careLevel, setCareLevel] = useState();
   const handleAddAssignment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -59,10 +58,6 @@ const AssignmentDetails = () => {
             <div>
               <h3>email:{assignment.email}</h3>
             </div>
-            {/* <NavLink to="assignmentViewDetails">
-              <button className="btn btn-primary">Take assignment</button>
-            </NavLink> */}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
             <button
               className="btn hover:bg-blue-400"
               onClick={() => document.getElementById("my_modal_1").showModal()}
@@ -104,24 +99,6 @@ const AssignmentDetails = () => {
                       required
                     />
                   </fieldset>
-                  {/* <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border ">
-                      <label className="label">
-                        assignment pending status level
-                      </label>
-                      <select
-                        onChange={(e) => setCareLevel(e.target.value)}
-                        value={careLevel}
-                        className="input input-bordered w-full"
-                        selected={setCareLevel}
-                        name="pending status"
-                        id="pending status"
-                        required
-                      >
-                        <option value=""></option>
-                        <option value="pending status">pending status</option>
-                      </select>
-                    </fieldset> */}
-                  {/* <h3 className="w-full">email:{assignment.email}</h3> */}
                   <button
                     onClick={() => navigate("/Assignments")}
                     className="btn hover:bg-blue-400"

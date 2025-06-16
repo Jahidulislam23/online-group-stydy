@@ -61,16 +61,6 @@ const UpdateAssignmentModal = () => {
                 </a>
               </p>
             </fieldset>
-            {/* <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
-          <label className="label">description</label>
-          <input
-            type="text"
-            name="description"
-            className="input w-full"
-            placeholder="description"
-            required
-          />
-        </fieldset> */}
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4 my-3">
               <label className="label">Feedback</label>
               <input

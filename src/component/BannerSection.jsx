@@ -20,10 +20,6 @@ const BannerSection = ({ card }) => {
           <p>
             {careLevel}
           </p>
-          
-          {/* <div className="card-actions w-full">
-            <Link to={`/assignments/${_id}`}><button className="btn bg-linear-to-bl from-violet-300 to-fuchsia-300 w-full text-white">View Details</button></Link>
-          </div> */}
         </div>
       </div>
         </div>

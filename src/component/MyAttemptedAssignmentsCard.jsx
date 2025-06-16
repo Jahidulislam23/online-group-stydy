@@ -5,7 +5,7 @@ const MyAttemptedAssignmentsCard = ({plants}) => {
     return (
         <div>
           
-           <div  className="card card-side bg-base-100 shadow-sm border-2 ">
+          <div  className="card card-side bg-base-100 shadow-sm border-2 ">
         <figure>
           <img className="w-40 h-40 " src={photo} alt="Movie" />
         </figure>
