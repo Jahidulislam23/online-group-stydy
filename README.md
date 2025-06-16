@@ -49,3 +49,21 @@ GreenNook is a beautifully designed plant management web app that helps users tr
 - **Deployment:** Vercel (Client) & Render (Server)
 
 ---
+## 🔐 Environment Variables
+
+Sensitive data such as Firebase API keys and MongoDB URIs are securely stored using `.env` files (never exposed in public repos).
+
+---
+
+## 📂 Project Structure
+
+- `/client` - React app with pages, components,and routes.
+- `/server` - Express server with API endpoints and MongoDB integration.
+
+---
+
+## 🧠 Inspiration
+
+The design is inspired by top-rated UI templates on ThemeForest and adapted into a unique plant-care aesthetic.
+
+---
