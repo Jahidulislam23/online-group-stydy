@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const Users = () => {
-    const initialUsers = useLoaderData();
+  const initialUsers = useLoaderData();
   const [users, setUsers] = useState(initialUsers);
   const handleDelete = (id) => {
     Swal.fire({
@@ -16,7 +16,7 @@ const Users = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/users/${id}`, {
+        fetch(`https://assignment-11-server-side-rosy.vercel.app/users/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -34,8 +34,8 @@ const Users = () => {
       }
     });
   };
-    return (
-        <div>
+  return (
+    <div>
       <h2>users:{users.length}</h2>
       <div className="overflow-x-auto">
         <table className="table">
@@ -89,7 +89,7 @@ const Users = () => {
         </table>
       </div>
     </div>
-    );
+  );
 };
 
 export default Users;

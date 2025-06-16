@@ -1,18 +1,16 @@
-import React, { use, useState } from 'react';
-import Swal from 'sweetalert2';
-import { AuthContext } from '../context/AuthContext';
-import DatePicker from 'react-datepicker';
+import React, { use, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 const CreateAssignments = () => {
-      const { user } = use(AuthContext);
+  const { user } = use(AuthContext);
 
   const [startDateTime, setStartDateTime] = useState(new Date());
   const [careLevel, setCareLevel] = useState();
-    const [description, setDescription] = useState("");
-    const [title, setTitle] = useState("");
-    const [marks, setMarks] = useState("");
-
-  
+  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("");
+  const [marks, setMarks] = useState("");
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -34,13 +32,13 @@ const CreateAssignments = () => {
     console.log(newTree);
     // newTree.startDate = startDate;
     newTree.startDateTime = startDateTime;
-    
+
     newTree.careLevel = careLevel;
-    console.log(newTree)
+    console.log(newTree);
     // send assignment data to the db
-    fetch("http://localhost:3000/assignment", {
+    fetch("https://assignment-11-server-side-rosy.vercel.app/assignment", {
       method: "POST",
-      credentials:'include',
+      credentials: "include",
       headers: {
         "content-type": "application/json",
       },
@@ -67,7 +65,7 @@ const CreateAssignments = () => {
           });
         }
       });
-      if (!title) {
+    if (!title) {
       Swal.fire({
         icon: "warning",
         title: "Character limit exceeded!",
@@ -77,7 +75,7 @@ const CreateAssignments = () => {
     }
     console.log("Title submitted:", title);
     setTitle("");
-      if (!marks) {
+    if (!marks) {
       Swal.fire({
         icon: "warning",
         title: "Character limit exceeded!",
@@ -88,8 +86,8 @@ const CreateAssignments = () => {
     console.log("Title submitted:", marks);
     setMarks("");
   };
-    return (
-        <div className="p-24">
+  return (
+    <div className="p-24">
       <div className="p-12 text-center">
         <h1 className="text-5xl font-bold">Add Assignment</h1>
       </div>
@@ -104,7 +102,7 @@ const CreateAssignments = () => {
               placeholder="title"
               required
               value={title}
-          onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
@@ -123,7 +121,6 @@ const CreateAssignments = () => {
             <label className="label">assignment difficulty level</label>
             <select
               onChange={(e) => setCareLevel(e.target.value)}
-              
               className="input input-bordered w-full"
               selected={setCareLevel}
               name="marks"
@@ -146,10 +143,10 @@ const CreateAssignments = () => {
               placeholder="Marks"
               required
               value={marks}
-          onChange={(e) => setMarks(e.target.value)}
+              onChange={(e) => setMarks(e.target.value)}
             />
           </fieldset>
-          
+
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
             <label className="label">due date</label>
             <DatePicker
@@ -196,7 +193,7 @@ const CreateAssignments = () => {
         <input className="btn w-full" type="submit" value="Add Assignment" />
       </form>
     </div>
-    );
+  );
 };
 
 export default CreateAssignments;

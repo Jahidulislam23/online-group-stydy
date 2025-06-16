@@ -69,12 +69,12 @@ const PendingAssignmentsPageCard = ({ card }) => {
             user?.email !==email ? <Link to={`/updateModal/${_id}`}>
 
           <button onClick={handleGiveMark}
-            className="btn w-full hover:bg-red-300"
+            className="btn w-full hover:bg-green-500"
           >
             give mark
           </button>
           </Link>:
-          <button onClick={handleNoGiveMark} className="btn w-full"> give mark</button>
+          <button onClick={handleNoGiveMark} className="btn w-full hover:bg-red-500"> give mark</button>
           }
           
         </div>

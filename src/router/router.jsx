@@ -9,103 +9,148 @@ import Assignments from "../component/Assignments";
 import CreateAssignments from "../component/CreateAssignments";
 import MyAttemptedAssignments from "../component/MyAttemptedAssignments";
 import Users from "../component/Users";
-import Loader from '../component/Loader'
+import Loader from "../component/Loader";
 import UpdateAssignment from "../component/UpdateAssignment";
 import AssignmentDetails from "../component/AssignmentDetails";
 import AssignmentViewDetails from "../component/AssignmentViewDetails";
 import Pendingassignmentspage from "../component/Pendingassignmentspage";
 import UpdateAssignmentModal from "../component/UpdateAssignmentModal";
 
-
-
 const router = createBrowserRouter([
-    {
-        path:'/',
-        Component:MainLayout,
-        errorElement:<ErrorCode></ErrorCode>,
-        children:[
+  {
+    path: "/",
+    Component: MainLayout,
+    errorElement: <ErrorCode></ErrorCode>,
+    children: [
+      {
+        path: "/",
+        Component: Home,
+        loader: () =>
+          fetch(
+            "https://assignment-11-server-side-rosy.vercel.app/homeAssignment",
             {
-                path:'/',
-                Component:Home,
-                loader: () => fetch("http://localhost:3000/homeAssignment"),
-                hydrateFallbackElement:<Loader></Loader>
-            },
+              credentials: "include",
+            }
+          ),
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/assignments",
+        element: <Assignments></Assignments>,
+        loader: () =>
+          fetch("https://assignment-11-server-side-rosy.vercel.app/assignment"),
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/update/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-11-server-side-rosy.vercel.app/assignment/${params.id}`,
             {
-                path:'/register',
-                Component:Register,
-            },
+              credentials: "include",
+            }
+          ).then((res) => res.json()),
+        element: (
+          <PrivateRoute>
+            <UpdateAssignment></UpdateAssignment>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/assignmentViewDetails/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-11-server-side-rosy.vercel.app/viewAssignmentViewDetails/${params.id}`,
             {
-                path:'/login',
-                Component:Login,
-            },
+              credentials: "include",
+            }
+          ).then((res) => res.json()),
+        Component: AssignmentViewDetails,
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/assignmentDetails/:id",
+        element: (
+          <PrivateRoute>
+            <AssignmentDetails></AssignmentDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-11-server-side-rosy.vercel.app/assignment/${params.id}`,
             {
-                path:'/assignments',
-                Component:Assignments,
-                loader: () => fetch("http://localhost:3000/assignment",{
-                    credentials:'include',
-                }),
-                hydrateFallbackElement: <Loader></Loader>,
-            },
+              credentials: "include",
+            }
+          ).then((res) => res.json()),
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/CreateAssignments",
+        element: (
+          <PrivateRoute>
+            <CreateAssignments></CreateAssignments>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/MyAttemptedAssignments",
+        element: (
+          <PrivateRoute>
+            <MyAttemptedAssignments></MyAttemptedAssignments>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/PendingAssignmentsPage",
+        loader: () =>
+          fetch(
+            "https://assignment-11-server-side-rosy.vercel.app/assignmentModal",
             {
-                path: "/update/:id",
-                loader: ({ params }) =>
-                fetch(`http://localhost:3000/assignment/${params.id}`,{
-                    credentials:'include'
-                }).then(res=>res.json()),
-                element:<PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-                hydrateFallbackElement: <Loader></Loader>,
-            },
+              credentials: "include",
+            }
+          ).then((res) => res.json()),
+        element: (
+          <PrivateRoute>
+            <Pendingassignmentspage></Pendingassignmentspage>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateModal/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-11-server-side-rosy.vercel.app/assignmentModal/${params.id}`,
             {
-                path: "/assignmentViewDetails/:id",
-                loader: ({ params }) =>
-                fetch(`http://localhost:3000/viewAssignmentViewDetails/${params.id}`,{
-                    credentials:"include"
-                }).then(res=>res.json()),
-                Component: AssignmentViewDetails,
-                hydrateFallbackElement: <Loader></Loader>,
-            },
-            {
-                    path: "/assignmentDetails/:id",
-                    element:<PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-                    loader: ({ params }) =>
-                    fetch(`http://localhost:3000/assignment/${params.id}`,{
-                        credentials:'include'
-                    }).then(res=>res.json()),
-                    hydrateFallbackElement: <Loader></Loader>,
-            },
-            {
-                path:'/CreateAssignments',
-                element:<PrivateRoute><CreateAssignments></CreateAssignments></PrivateRoute>
-            },
-            {
-                path:'/MyAttemptedAssignments',
-                element:<PrivateRoute><MyAttemptedAssignments></MyAttemptedAssignments></PrivateRoute>
-            },
-            {
-                path:'/PendingAssignmentsPage',
-                loader: () => fetch("http://localhost:3000/assignmentModal",{
-                    credentials:'include',
-                }).then(res=>res.json()),
-                element:<PrivateRoute><Pendingassignmentspage></Pendingassignmentspage></PrivateRoute>,
-                
-            },
-            {
-                path: "/updateModal/:id",
-                loader: ({ params }) =>
-                fetch(`http://localhost:3000/assignmentModal/${params.id}`,{
-                    credentials:'include'
-                }).then(res=>res.json()),
-                element:<PrivateRoute><UpdateAssignmentModal></UpdateAssignmentModal></PrivateRoute>,
-                hydrateFallbackElement: <Loader></Loader>,
-            },
-            {
-                path: "/users",
-                Component: Users,
-                loader: () => fetch("http://localhost:3000/users").then(res=>res.json()),
-                hydrateFallbackElement: <Loader></Loader>,
-            },
-        ]
-    }
-])
+              credentials: "include",
+            }
+          ).then((res) => res.json()),
+        element: (
+          <PrivateRoute>
+            <UpdateAssignmentModal></UpdateAssignmentModal>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "/users",
+        Component: Users,
+        loader: () =>
+          fetch("https://assignment-11-server-side-rosy.vercel.app/users").then(
+            (res) => res.json()
+          ),
+        hydrateFallbackElement: <Loader></Loader>,
+      },
+    ],
+  },
+]);
 
 export default router;

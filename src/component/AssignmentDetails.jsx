@@ -1,10 +1,10 @@
-import React, { use, } from "react";
+import React, { use } from "react";
 import { NavLink, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 
 const AssignmentDetails = () => {
-  const {user} = use(AuthContext);
+  const { user } = use(AuthContext);
   const assignment = useLoaderData();
   const navigate = useNavigate();
   // const [careLevel, setCareLevel] = useState();
@@ -16,7 +16,7 @@ const AssignmentDetails = () => {
     console.log(newAssignment);
     newAssignment.careLevel = "pending";
     // send assignment data to the db
-    fetch("http://localhost:3000/assignmentModal", {
+    fetch("https://assignment-11-server-side-rosy.vercel.app/assignmentModal", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -72,39 +72,39 @@ const AssignmentDetails = () => {
             <dialog id="my_modal_1" className="modal">
               <div className="modal-box">
                 <form onSubmit={handleAddAssignment}>
-                    <div className=" w-full gap-6"></div>
-                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border  my-6 w-full">
-                      <label className="label"> GoogleDocsLink</label>
-                      <input
-                        type="url"
-                        name="Google_Docs_link"
-                        className="input w-full"
-                        placeholder=" Google Docs link"
-                        required
-                      />
-                    </fieldset>
-                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
-                      <label className="label">Description</label>
-                      <input
-                        type="text"
-                        name="description"
-                        className="input w-full"
-                        placeholder="Description"
-                        required
-                      />
-                    </fieldset>
-                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
-                      <label className="label">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        defaultValue={user?.email}
-                        className="input w-full"
-                        placeholder="Email"
-                        required
-                      />
-                    </fieldset>
-                    {/* <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border ">
+                  <div className=" w-full gap-6"></div>
+                  <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border  my-6 w-full">
+                    <label className="label"> GoogleDocsLink</label>
+                    <input
+                      type="url"
+                      name="Google_Docs_link"
+                      className="input w-full"
+                      placeholder=" Google Docs link"
+                      required
+                    />
+                  </fieldset>
+                  <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
+                    <label className="label">Description</label>
+                    <input
+                      type="text"
+                      name="description"
+                      className="input w-full"
+                      placeholder="Description"
+                      required
+                    />
+                  </fieldset>
+                  <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border p-4">
+                    <label className="label">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      defaultValue={user?.email}
+                      className="input w-full"
+                      placeholder="Email"
+                      required
+                    />
+                  </fieldset>
+                  {/* <fieldset className="fieldset bg-base-200 border-base-300 rounded-box  border ">
                       <label className="label">
                         assignment pending status level
                       </label>
@@ -121,17 +121,16 @@ const AssignmentDetails = () => {
                         <option value="pending status">pending status</option>
                       </select>
                     </fieldset> */}
-                    {/* <h3 className="w-full">email:{assignment.email}</h3> */}
-                    <button
-                      onClick={() => navigate("/Assignments")}
-                      className="btn hover:bg-blue-400"
-                    >
-                      Submit assignment
-                    </button>
-                  </form>
+                  {/* <h3 className="w-full">email:{assignment.email}</h3> */}
+                  <button
+                    onClick={() => navigate("/Assignments")}
+                    className="btn hover:bg-blue-400"
+                  >
+                    Submit assignment
+                  </button>
+                </form>
 
                 <div className="modal-action">
-                  
                   <form method="dialog">
                     <button className="btn hover:bg-blue-400">Close</button>
                   </form>

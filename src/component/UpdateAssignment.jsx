@@ -1,10 +1,10 @@
-import React from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
-import Swal from 'sweetalert2';
+import React from "react";
+import { useLoaderData, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdateAssignment = () => {
-      const { email, photo, title, description, } = useLoaderData();
-      const navigate = useNavigate();
+  const { _id, photo, title, description } = useLoaderData();
+  const navigate = useNavigate();
   const handleUpdateAssignment = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,19 +13,21 @@ const UpdateAssignment = () => {
     console.log(updateAssignment);
 
     // send update the assignment
-    fetch(`http://localhost:3000/assignment/${email}`, {
-      method: "PUT",
-      credentials:'include',
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateAssignment),
-    })
+    fetch(
+      `https://assignment-11-server-side-rosy.vercel.app/assignment/${_id}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateAssignment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
           const Toast = Swal.mixin({
-
             toast: true,
             position: "top-end",
             showConfirmButton: false,
@@ -40,16 +42,14 @@ const UpdateAssignment = () => {
           Toast.fire({
             icon: "success",
             title: "Assignment update successfully",
-
           });
-          navigate('/assignments')
+          navigate("/assignments");
         }
       });
-
   };
-  
-    return (
-        <div className="p-24">
+
+  return (
+    <div className="p-24">
       <div className="p-12 text-center">
         <h1 className="text-5xl font-bold">Update Assignment</h1>
       </div>
@@ -89,10 +89,16 @@ const UpdateAssignment = () => {
             placeholder="photo"
           />
         </fieldset>
-        <button  className='w-full'><input className="btn w-full" type="submit" value="update assignment" /></button>
+        <button className="w-full">
+          <input
+            className="btn w-full"
+            type="submit"
+            value="update assignment"
+          />
+        </button>
       </form>
     </div>
-    );
+  );
 };
 
 export default UpdateAssignment;

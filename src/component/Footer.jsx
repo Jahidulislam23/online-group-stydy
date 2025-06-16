@@ -34,7 +34,7 @@ const Footer = () => {
           {isUserExist?<><li>
             <NavLink
               className={({ isActive }) => (isActive ? " text-blue-500" : "")}
-              to="/Assignments"
+              to="/assignments"
             >
               Assignments
             </NavLink>

@@ -5,13 +5,13 @@ import { AuthContext } from "../context/AuthContext";
 
 const Assignments = () => {
   const data = useLoaderData();
+  console.log(data);
   const [plant, setPlant] = useState(data);
-  const [select,setSelect] = useState('')
-  const {user} = use(AuthContext);
+  const [select, setSelect] = useState("");
+  const { user } = use(AuthContext);
   // const {email} = data;
   //   console.log(email)
   const handleDelete = (_id) => {
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -23,10 +23,13 @@ const Assignments = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // start deleting the tree
-        fetch(`http://localhost:3000/assignment/${_id}`, {
-          method: "DELETE",
-          credentials: "include",
-        })
+        fetch(
+          `https://assignment-11-server-side-rosy.vercel.app/assignment/${_id}`,
+          {
+            method: "DELETE",
+            credentials: "include",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -42,94 +45,97 @@ const Assignments = () => {
             }
           });
       }
-      if(user?.email === data?.email){
-          const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.onmouseenter = Swal.stopTimer;
-                      toast.onmouseleave = Swal.resumeTimer;
-                    },
-                  });
-                  Toast.fire({
-                    icon: "success",
-                    title: "tomer email tomi kaj korte parba na",
-                  });
-        }
+      if (user?.email === data?.email) {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: "tomer email tomi kaj korte parba na",
+        });
+      }
     });
   };
-  const handleNoDelete =()=>{
-        if(user?.email !== data?.email){
-          const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.onmouseenter = Swal.stopTimer;
-                      toast.onmouseleave = Swal.resumeTimer;
-                    },
-                  });
-                  Toast.fire({
-                    icon: "success",
-                    title: "tomer email tomi sara delete korte parba na",
-                  });
-        }
-      }
+  const handleNoDelete = () => {
+    if (user?.email !== data?.email) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "tomer email tomi sara delete korte parba na",
+      });
+    }
+  };
   const handleFilter = (event) => {
-    setSelect(event.target.value)
-    fetch(`http://localhost:3000/assignment?filterType=${event.target.value}`,{
-      credentials:'include'
-    })
+    setSelect(event.target.value);
+    fetch(
+      `https://assignment-11-server-side-rosy.vercel.app/assignment?filterType=${event.target.value}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setPlant(data)
+        setPlant(data);
       });
   };
   const handleGiveMarkEdit = () => {
-      if(user?.email ===data?.email) {
-        console.log(data?.email)
-        const Toast = Swal.mixin({
-                  toast: true,
-                  position: "top-end",
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                  },
-                });
-                Toast.fire({
-                  icon: "success",
-                  title: "ai email tomi kaj korte parba ",
-                });
-      } 
-    };
-    const handleNoGiveMarkEdit =()=>{
-        if(user?.email !== data?.email){
-          const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                      toast.onmouseenter = Swal.stopTimer;
-                      toast.onmouseleave = Swal.resumeTimer;
-                    },
-                  });
-                  Toast.fire({
-                    icon: "success",
-                    title: "tomer email tomi kaj korte parba na",
-                  });
-        }
-      }
+    if (user?.email === data?.email) {
+      console.log(data?.email);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "ai email tomi kaj korte parba ",
+      });
+    }
+  };
+  const handleNoGiveMarkEdit = () => {
+    if (user?.email !== data?.email) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "tomer email tomi kaj korte parba na",
+      });
+    }
+  };
   return (
     <>
       <fieldset className="fieldset">
@@ -153,25 +159,38 @@ const Assignments = () => {
                 <p>Description: {data?.description}</p>
                 <p>Marks: {data?.marks}</p>
                 <div className="card-actions ">
-                  {
-                    user?.email === data?.email ? <Link to={`/update/${data?._id}`}>
-                    <button onClick={handleGiveMarkEdit} className="btn hover:bg-blue-500">Edit</button>
-                  </Link> : <button onClick={handleNoGiveMarkEdit} className="btn">Edit</button>
-                  }
-                  
+                  {user?.email === data?.email ? (
+                    <Link to={`/update/${data?._id}`}>
+                      <button
+                        onClick={handleGiveMarkEdit}
+                        className="btn hover:bg-blue-500"
+                      >
+                        Edit
+                      </button>
+                    </Link>
+                  ) : (
+                    <button onClick={handleNoGiveMarkEdit} className="btn">
+                      Edit
+                    </button>
+                  )}
+
                   <Link to={`/assignmentDetails/${data?._id}`}>
                     <button className="btn  hover:bg-blue-500">
                       View Details
                     </button>
                   </Link>
-                  {
-                    user?.email === data?.email ? <button
-                    onClick={() => handleDelete(data?._id)}
-                    className="btn hover:bg-blue-500"
-                  >
-                    Delete
-                  </button> : <button onClick={handleNoDelete} className="btn">delete</button>
-                  }
+                  {user?.email === data?.email ? (
+                    <button
+                      onClick={() => handleDelete(data?._id)}
+                      className="btn hover:bg-blue-500"
+                    >
+                      Delete
+                    </button>
+                  ) : (
+                    <button onClick={handleNoDelete} className="btn">
+                      delete
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

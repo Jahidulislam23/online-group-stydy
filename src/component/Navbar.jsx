@@ -73,7 +73,7 @@ const Navbar = () => {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              /> {" "}
             </svg>
           </div>
           <ul
@@ -93,7 +93,7 @@ const Navbar = () => {
               <li>
               <NavLink
                 className={({ isActive }) => (isActive ? " text-blue-500" : "")}
-                to="/Assignments"
+                to="/assignments"
               >
                 Assignments
               </NavLink>
@@ -143,7 +143,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? " text-blue-500" : "")}
-              to="/Assignments"
+              to="/assignments"
             >
               Assignments page
             </NavLink>
@@ -179,7 +179,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box   w-40 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box   w-48 p-2 shadow"
               >
                 <h2>{user?.displayName}</h2>
                 <h1>{user?.email}</h1>
