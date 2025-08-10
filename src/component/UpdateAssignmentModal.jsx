@@ -14,17 +14,14 @@ const UpdateAssignmentModal = () => {
     updateAssignment.careLevel = "completed";
 
     // send update the assignment
-    fetch(
-      `https://assignment-11-server-side-rosy.vercel.app/assignmentModal/${id}`,
-      {
-        method: "PUT",
-        credentials: "include",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateAssignment),
-      }
-    )
+    fetch(`http://localhost:3000/assignmentModal/${id}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateAssignment),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -44,7 +41,7 @@ const UpdateAssignmentModal = () => {
             icon: "success",
             title: "Assignment pending teke compeletedd successfully",
           });
-          navigate("/PendingAssignmentsPage");
+          navigate("/dashboard/dashboard/PendingAssignmentsPage");
         }
       });
   };
@@ -83,7 +80,7 @@ const UpdateAssignmentModal = () => {
             </fieldset>
 
             <button
-              onClick={() => navigate("/PendingAssignmentsPage")}
+              onClick={() => navigate("/dashboard/dashboard/PendingAssignmentsPage")}
               className="btn hover:bg-green-400 pt-2 my-3"
               type="submit"
             >

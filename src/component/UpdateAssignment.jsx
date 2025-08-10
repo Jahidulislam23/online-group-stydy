@@ -13,17 +13,14 @@ const UpdateAssignment = () => {
     console.log(updateAssignment);
 
     // send update the assignment
-    fetch(
-      `https://assignment-11-server-side-rosy.vercel.app/assignment/${_id}`,
-      {
-        method: "PUT",
-        credentials: "include",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateAssignment),
-      }
-    )
+    fetch(`http://localhost:3000/assignment/${_id}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateAssignment),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -43,7 +40,7 @@ const UpdateAssignment = () => {
             icon: "success",
             title: "Assignment update successfully",
           });
-          navigate("/assignments");
+          navigate("/dashboard/dashboard/assignments");
         }
       });
   };

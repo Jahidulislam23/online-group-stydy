@@ -135,7 +135,7 @@ const Login = () => {
   const navigate = useNavigate();
     return (
 
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero  min-h-screen">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       
@@ -187,6 +187,9 @@ const Login = () => {
           <hr className="w-full dark:text-gray-600" />
           <p className="px-3 dark:text-gray-600">OR</p>
           <hr className="w-full dark:text-gray-600" />
+        </div>
+        <div>
+          <button className="w-full px-8 py-3 font-semibold rounded-md bg-violet-600 text-white" onClick={()=>navigate('/')}>Home</button>
         </div>
         <div className="my-6 space-y-4">
           <button

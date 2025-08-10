@@ -1,29 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { motion } from 'framer-motion';
 
 const BannerSection = ({ card }) => {
-    const {_id,title,photo,description,careLevel} = card;
-    return (
-        <div>
-            <div className="card bg-linear-to-r from-cyan-300 to-blue-300 shadow-sm sm:pr-3">
-        <figure>
-          <img
-            src={photo}
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">{title}</h2>
-          <p>
-            {description}
-          </p>
-          <p>
-            {careLevel}
-          </p>
-        </div>
+  const { _id, title, photo, description, careLevel } = card;
+
+  return (
+    <motion.div
+      className="card shadow-sm sm:pr-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      whileHover={{ scale: 1.05 }}
+    >
+      <figure>
+        <img
+          src={photo}
+          alt={title}
+          className="w-full object-cover"
+        />
+      </figure>
+      <div className="card-body p-4">
+        <h2 className="card-title text-xl font-semibold mb-2">{title}</h2>
+        <p className="mb-2">{description}</p>
+        <p className="font-medium">{careLevel}</p>
       </div>
-        </div>
-    );
+    </motion.div>
+  );
 };
 
 export default BannerSection;

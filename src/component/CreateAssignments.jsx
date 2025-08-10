@@ -35,7 +35,7 @@ const CreateAssignments = () => {
     newTree.careLevel = careLevel;
     console.log(newTree);
     // send assignment data to the db
-    fetch("https://assignment-11-server-side-rosy.vercel.app/assignment", {
+    fetch("http://localhost:3000/assignment", {
       method: "POST",
       credentials: "include",
       headers: {

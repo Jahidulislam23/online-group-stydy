@@ -15,7 +15,7 @@ const AssignmentDetails = () => {
     console.log(newAssignment);
     newAssignment.careLevel = "pending";
     // send assignment data to the db
-    fetch("https://assignment-11-server-side-rosy.vercel.app/assignmentModal", {
+    fetch("http://localhost:3000/assignmentModal", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -100,7 +100,7 @@ const AssignmentDetails = () => {
                     />
                   </fieldset>
                   <button
-                    onClick={() => navigate("/Assignments")}
+                    onClick={() => navigate("/dashboard/dashboard/Assignments")}
                     className="btn hover:bg-blue-400"
                   >
                     Submit assignment
@@ -115,7 +115,7 @@ const AssignmentDetails = () => {
               </div>
             </dialog>
             <button
-              onClick={() => navigate("/Assignments")}
+              onClick={() => navigate("/dashboard/dashboard/Assignments")}
               className="btn hover:bg-blue-400"
             >
               assignment page

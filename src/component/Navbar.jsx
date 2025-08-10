@@ -88,39 +88,7 @@ const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            {
-              isUserExist ? <>
-              <li>
-              <NavLink
-                className={({ isActive }) => (isActive ? " text-blue-500" : "")}
-                to="/assignments"
-              >
-                Assignments
-              </NavLink>
-              
-            </li>
-            <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? " text-blue-500" : ""
-                    }
-                    to="/CreateAssignments"
-                  >
-                    Create Assignments
-                  </NavLink>
-            </li>
-            <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? " text-blue-500" : ""
-                    }
-                    to="/MyAttemptedAssignments"
-                  >
-                    My Attempted Assignments
-                  </NavLink>
-            </li>
-              </> :""
-            }
+            
           </ul>
         </div>
         <img
@@ -141,24 +109,6 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className={({ isActive }) => (isActive ? " text-blue-500" : "")}
-              to="/assignments"
-            >
-              Assignments page
-            </NavLink>
-          </li>
-          {isUserExist?<><li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? " text-blue-500" : ""
-                    }
-                    to="/PendingAssignmentsPage"
-                  >
-                    PendingAssignmentsPage
-                  </NavLink>
-                </li></>:""}
         </ul>
       </div>
       <div className="navbar-end gap-3">
@@ -190,27 +140,9 @@ const Navbar = () => {
                     className={({ isActive }) =>
                       isActive ? " text-blue-500" : ""
                     }
-                    to="/CreateAssignments"
+                    to="/dashboard"
                   >
-                    Create Assignments
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? " text-blue-500" : ""
-                    }
-                    to="/MyAttemptedAssignments"
-                  >
-                    My Attempted Assignments
-                  </NavLink>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? " text-blue-500" : ""
-                    }
-                    to="/PendingAssignmentsPage"
-                  >
-                    PendingAssignmentsPage
+                    Dashboard
                   </NavLink>
                 </li>
                 </ul>

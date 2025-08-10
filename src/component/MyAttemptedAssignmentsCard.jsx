@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyAttemptedAssignmentsCard = ({plants}) => {
-    const {_id,title,description,photo} = plants;
+    const {_id,title,name,description,photo,marks,email,startDateTime,careLevel} = plants;
     return (
         <div>
           
@@ -11,9 +11,13 @@ const MyAttemptedAssignmentsCard = ({plants}) => {
         </figure>
         <div className="flex mt-8 w-full justify-around">
           <div>
-            <h2 className="">Name: {title}</h2>
-            <p>description: {description}</p>
-            
+            <h2 className="">Name: {name}</h2>
+            <h2>email : {email}</h2>
+            <h2>Title:{title}</h2>
+            <h2>description: {description}</h2>
+            <h2>marks:{marks}</h2>
+            <h2>startDateTime :{startDateTime}</h2>
+            <p>careLevel:{careLevel}</p>
           </div>
         </div>
         

@@ -66,7 +66,7 @@ const PendingAssignmentsPageCard = ({ card }) => {
           <h2>{feedback}</h2>
           <h2>{marks}</h2>
           {
-            user?.email !==email ? <Link to={`/updateModal/${_id}`}>
+            user?.email !==email ? <Link to={`/dashboard/dashboard/updateModal/${_id}`}>
 
           <button onClick={handleGiveMark}
             className="btn w-full hover:bg-green-500"

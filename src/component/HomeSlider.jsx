@@ -18,7 +18,7 @@ const HomeSlider = () => {
           />
             <motion.img
             src={pik2}
-            animate={{x:[-70,-100,-70]}}
+            animate={{x:[100,100,150]}}
             transition={{duration:5,repeat:Infinity}}
             className="max-w-sm border-blue-500 border-s-8 border-b-8 rounded-t-[30px] rounded-br-[40px] shadow-2xl"
           />
