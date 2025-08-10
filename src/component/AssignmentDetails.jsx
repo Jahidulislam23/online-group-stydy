@@ -15,7 +15,7 @@ const AssignmentDetails = () => {
     console.log(newAssignment);
     newAssignment.careLevel = "pending";
     // send assignment data to the db
-    fetch("http://localhost:3000/assignmentModal", {
+    fetch("https://assignment-11-server-side-rosy.vercel.app/assignmentModal", {
       method: "POST",
       credentials: "include",
       headers: {

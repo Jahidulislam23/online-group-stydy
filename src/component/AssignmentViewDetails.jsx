@@ -15,14 +15,17 @@ const AssignmentViewDetails = () => {
     console.log(updateAssignment);
 
     // send viewAssignmentDetails
-    fetch(`http://localhost:3000/assignment/${email}`, {
-      method: "PUT",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateAssignment),
-    })
+    fetch(
+      `https://assignment-11-server-side-rosy.vercel.app/assignment/${email}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateAssignment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

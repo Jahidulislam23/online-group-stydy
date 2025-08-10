@@ -41,9 +41,13 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const userData = { email: currentUser.email };
         axios
-          .post("http://localhost:3000/jwt", userData, {
-            withCredentials: true,
-          })
+          .post(
+            "https://assignment-11-server-side-rosy.vercel.app/jwt",
+            userData,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log("token after jwt", res.data);
           })

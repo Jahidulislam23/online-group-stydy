@@ -23,10 +23,13 @@ const Assignments = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // start deleting the tree
-        fetch(`http://localhost:3000/assignment/${_id}`, {
-          method: "DELETE",
-          credentials: "include",
-        })
+        fetch(
+          `https://assignment-11-server-side-rosy.vercel.app/assignment/${_id}`,
+          {
+            method: "DELETE",
+            credentials: "include",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -82,9 +85,12 @@ const Assignments = () => {
   };
   const handleFilter = (event) => {
     setSelect(event.target.value);
-    fetch(`http://localhost:3000/assignment?filterType=${event.target.value}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://assignment-11-server-side-rosy.vercel.app/assignment?filterType=${event.target.value}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -168,7 +174,9 @@ const Assignments = () => {
                     </button>
                   )}
 
-                  <Link to={`/dashboard/dashboard/assignmentDetails/${data?._id}`}>
+                  <Link
+                    to={`/dashboard/dashboard/assignmentDetails/${data?._id}`}
+                  >
                     <button className="btn  hover:bg-blue-500">
                       View Details
                     </button>

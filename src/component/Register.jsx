@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink, useNavigate } from "react-router"; 
+import { NavLink, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import { updateProfile } from "firebase/auth";
@@ -48,10 +48,15 @@ const Register = () => {
     const formData = new FormData();
     formData.append("image", file);
 
-    const res = await fetch(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_images_upload_key}`, {
-      method: "POST",
-      body: formData,
-    });
+    const res = await fetch(
+      `https://api.imgbb.com/1/upload?key=${
+        import.meta.env.VITE_images_upload_key
+      }`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
     const data = await res.json();
     if (!data.success) {
       throw new Error("Image upload failed");
@@ -118,11 +123,14 @@ const Register = () => {
         lastSignInTime: result.user?.metadata?.lastSignInTime,
       };
 
-      const saveRes = await fetch("http://localhost:3000/users", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(userProfile),
-      });
+      const saveRes = await fetch(
+        "https://assignment-11-server-side-rosy.vercel.app/users",
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userProfile),
+        }
+      );
       const saveData = await saveRes.json();
 
       if (saveData.insertedId) {
@@ -279,7 +287,10 @@ const Register = () => {
 
                 <p className="px-6 text-sm text-center">
                   Already have an account?{" "}
-                  <NavLink to="/login" className="text-indigo-600 hover:underline">
+                  <NavLink
+                    to="/login"
+                    className="text-indigo-600 hover:underline"
+                  >
                     Log In
                   </NavLink>
                 </p>

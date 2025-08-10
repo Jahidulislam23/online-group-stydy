@@ -6,9 +6,12 @@ const MyAttemptedAssignments = () => {
   const { user } = use(AuthContext);
   const [plant, setPlant] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/assignments/${user?.email}`, {
-      credentials: "include",
-    })
+    fetch(
+      `https://assignment-11-server-side-rosy.vercel.app/assignments/${user?.email}`,
+      {
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setPlant(data);

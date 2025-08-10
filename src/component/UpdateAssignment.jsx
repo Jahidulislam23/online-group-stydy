@@ -13,14 +13,17 @@ const UpdateAssignment = () => {
     console.log(updateAssignment);
 
     // send update the assignment
-    fetch(`http://localhost:3000/assignment/${_id}`, {
-      method: "PUT",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateAssignment),
-    })
+    fetch(
+      `https://assignment-11-server-side-rosy.vercel.app/assignment/${_id}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateAssignment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
